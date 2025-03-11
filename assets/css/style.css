@@ -1,15 +1,66 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Macondo&family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Macondo&family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #40602E; /* Dark Moss Green */
+    --primary-dark: #1C3627; /* Dark Green */
+    --highlight-color: #B75B52; /*Bittersweet Shimmer */
+    --white: #fff;
+    --heading-font: 'Roboto', sans-serif;
+    --body-font: 'Kantumruy Pro', sans-serif;
+}
 
 body {
-    background-color: rgb(9, 62, 9);
+    background-color: var(--primary-color);
+    font-family: var(--body-font);
+}
+
+h1, h2 {
+    font-family: var(--heading-font);
+}
+
+h1 {
+    border-bottom: 1px solid;
+}
+
+h2 {
+    font-weight: 400;
 }
 
 .container {
-    background-color: #fff;
+    background-color: var(--white);
     margin-top: 10%;
     margin-left: 25%;
-    width: 100%;
-    max-width: 600px;
-    padding: 4rem 1rem;
     display: flex;
     justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+
+/*BUTTONS*/
+.btn {
+    display: block;
+    width: 100wh;
+    padding: 15px;
+    margin: 15px;
+    border: 2px solid var(--primary-color);
+    border-radius: 3rem;
+    background-color: var(--white);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 200;
+    font-family: var(--primary-font);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
 }
