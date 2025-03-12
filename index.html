@@ -10,20 +10,30 @@
     <div class="container">
         <div id="content">
             <h1>Rate Your Health Quiz</h1>
-
-            <div id="progress">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div id="welcome">
+                <p>Welcome to rate your health! 
+                   This quiz will give you an indication of your 
+                   overall health level as well as provide helpful tips 
+                   in the results for areas with lowest score. 
+                   Press the button below to start and enjoy!</p>
+                <button>Start Quiz</button>
             </div>
-            <div id="question">
-                <h2># Question</h2>
+            <div id="quiz">
+                <div id="progress">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h2 id="question">Question</h2>
+                <div id="answers">
+                    <button id="answer1" class="btn">Answer 1</button>
+                    <button id="answer2" class="btn">Answer 2</button>
+                    <button id="answer3" class="btn">Answer 3</button>
+                    <button id="answer4" class="btn">Answer 4</button>
+                </div>
             </div>
-            <div id="answers">
-                <button id="answer1" class="btn">Answer 1</button>
-                <button id="answer2" class="btn">Answer 2</button>
-                <button id="answer3" class="btn">Answer 3</button>
-                <button id="answer4" class="btn">Answer 4</button>
+            <div id="results">
+                Results
             </div>
         </div>
     </div>
