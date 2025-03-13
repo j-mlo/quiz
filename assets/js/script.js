@@ -47,7 +47,7 @@ const categories = ["Excellent", "Good", "Can be improved", "Intervention"];
 let scoreTracker = [0, 0, 0, 0]; 
 let questionNumber = 0;
 let quizFinish = false;
-let numberOfQuestions = numberOfQuestions.length;
+let numberOfQuestions = questions.length;
 
 /**
  * Shows the welcome paragraph and hides questions and resutls sections
@@ -72,7 +72,7 @@ function showQuestion(questionNumber) {
     answer2.innerText = questions[questionNumber].answer[1];
     answer3.innerText = questions[questionNumber].answer[2];
     answer4.innerText = questions[questionNumber].answer[3];
-
+    
 }
 
 /**
@@ -80,16 +80,29 @@ function showQuestion(questionNumber) {
  * @param {number} selectedOption 
  */
 function checkAnswer(selectedOption) {
+    welcome.style.display = "none";
+    results.style.display = "none";
+    quizContent.style.display = "block";
+
     scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
     quizFinish = endOfQuestions();
     if (!quizFinish) {
+        questionNumber++;
         showQuestion(questionNumber);
     };
 }
 
+/**
+ * 
+ * @returns 
+ */
 function endOfQuestions() {
     questionNumber ++;
-    return questionNumber === numberOfQuestions;
+    return questionNumber == numberOfQuestions;
+    
+    welcome.style.display = "none";
+    results.style.display = "none";
+    quizContent.style.display = "block";
 }
 
 
