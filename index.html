@@ -33,18 +33,43 @@
                 </div>
                 <h2 id="question">Question</h2>
                 <div id="answers">
-                    <button id="answer1" class="btn" onclick="checkAnswer(0);">Answer 1</button>
-                    <button id="answer2" class="btn" onclick="checkAnswer(1);">Answer 2</button>
-                    <button id="answer3" class="btn" onclick="checkAnswer(2);">Answer 3</button>
-                    <button id="answer4" class="btn" onclick="checkAnswer(3);">Answer 4</button>
+                    <button id="answer1" class="ans-btn" onclick="checkAnswer(0);">Answer 1</button>
+                    <button id="answer2" class="ans-btn" onclick="checkAnswer(1);">Answer 2</button>
+                    <button id="answer3" class="ans-btn" onclick="checkAnswer(2);">Answer 3</button>
+                    <button id="answer4" class="ans-btn" onclick="checkAnswer(3);">Answer 4</button>
                 </div>
+                <button class="back-btn"><i class="fa-solid fa-arrow-left"></i>  Back</button>
+                <button class="start-btn" onclick="welcomePage();">Restart</button>
             </div>
             <div id="results">
-                Results
+                <h1>Results</h1>
+                <div id="excellent">
+                    <h2>Your Health Is: Excellent</h2>
+                    <p>Congratulations! You scored "Excellent" in most questions, which means that your health is in a very good shape.
+                    </p>
+                </div>
+                <div id="good">
+                    <h2>Your Health Is: Good</h2>
+                    <p>You scored "Good" in most cateogries, which means your overall health is at a good level.
+                    </p>
+                </div>
+                <div id="improver">
+                    <h2>Your Health: Can Be Improved </h2>
+                    <p>You scored "Can Be Improved" in most questions, which means that there is definitely a scope for improvement.
+                    </p>
+                </div>
+                <div id="intervention">
+                    <h2>Your Health: Needs Intervention</h2>
+                    <p>You scored "Intervention" in most questions, which means that your health needs an urgent prioritisation!
+                    </p>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="assets/js/script.js"></script>
+
+     <!-- Font Awesome kit -->
+    <script src="https://kit.fontawesome.com/e9d55bcde0.js" crossorigin="anonymous"></script>
 </body>
 </html>

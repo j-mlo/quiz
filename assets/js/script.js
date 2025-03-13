@@ -77,7 +77,7 @@ const questions = [
         answer: [
             "I love what I do even despite challenges",
             "I mostly enjoy what I do but dread some of my daily tasks",
-            "I don’t like what I do and don’t get any energy from it",
+            "I don’t like what I do and don’t get energy from it",
             "My current vocation Is causing depression and/or anxiety"
         ],
     },
@@ -107,7 +107,7 @@ const results = document.getElementById("results");
 const welcome = document.getElementById("welcome");
 
 
-const categories = ["Excellent", "Good", "Can be improved", "Intervention"];
+const categories = ["Excellent", "Good", "Improver", "Intervention"];
 let scoreTracker = [0, 0, 0, 0]; 
 let questionNumber = 0;
 let quizFinish = false;
@@ -137,7 +137,6 @@ function showQuestion(questionNumber) {
     answer3.innerText = questions[questionNumber].answer[2];
     answer4.innerText = questions[questionNumber].answer[3];
     
-
 }
 
 /**

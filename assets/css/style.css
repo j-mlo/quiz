@@ -51,7 +51,7 @@ span {display: inline-block;}
    }
 
 /*BUTTONS*/
-.btn {
+.ans-btn {
     display: block;
     width: 100wh;
     padding: 15px;
@@ -67,7 +67,7 @@ span {display: inline-block;}
     transition: all 0.3s;
 }
 
-.btn:hover {
+.ans-btn:hover {
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
@@ -90,4 +90,10 @@ span {display: inline-block;}
 
 .start-btn:hover {
     background-color: var(--primary-color);
+}
+
+.back-btn {
+    color: var(--primary-dark);
+    border: none;
+    background-color: var(--white);
 }
