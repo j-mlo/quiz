@@ -27,7 +27,7 @@ h2 {
 
 .container {
     background-color: var(--white);
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 25%;
     display: flex;
     justify-content: center;
@@ -53,6 +53,7 @@ span {display: inline-block;}
 /*BUTTONS*/
 .ans-btn {
     display: block;
+    justify-self: center;
     width: 100wh;
     padding: 15px;
     margin: 15px;
@@ -85,15 +86,24 @@ span {display: inline-block;}
     font-weight: 500;
     font-family: var(--body-font);
     cursor: pointer;
-    transition: all 0.3s;
 }
 
 .start-btn:hover {
     background-color: var(--primary-color);
 }
 
+.nav-buttons {
+    display: flex;
+    justify-self: end;
+}
+
 .back-btn {
     color: var(--primary-dark);
     border: none;
     background-color: var(--white);
+    font-size: 110%;
+}
+
+.back-btn:hover {
+    font-size: 130%;
 }

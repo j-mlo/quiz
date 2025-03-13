@@ -93,8 +93,10 @@ const questions = [
 ];
 
 // Getters
+const welcome = document.getElementById("welcome");
 const quizContent = document.getElementById("quiz");
-const progress = document.getElementById("progress");
+const progressBar = document.getElementById("progress-bar");
+
 const question = document.getElementById("question");
 
 const answer = document.getElementById("answer");
@@ -104,7 +106,6 @@ const answer3 = document.getElementById("answer3");
 const answer4 = document.getElementById("answer4");
 
 const results = document.getElementById("results");
-const welcome = document.getElementById("welcome");
 
 
 const categories = ["Excellent", "Good", "Improver", "Intervention"];
@@ -113,23 +114,40 @@ let questionNumber = 0;
 let quizFinish = false;
 let numberOfQuestions = questions.length;
 
-/**
- * Shows the welcome paragraph and hides questions and resutls sections
- */
-function welcomePage() {
+
+
+// Functions to hide and show different section of the game
+function displayWelcome() {
+    welcome.style.display = "block";
     quizContent.style.display = "none";
     results.style.display =  "none";
+};
+
+function displayQuiz() {
+    welcome.style.display = "none";
+    quizContent.style.display = "block";
+    results.style.display =  "none";
+}
+
+function displayResults() {
+    welcome.style.display = "none";
+    quizContent.style.display = "none";
+    results.style.display =  "block";
+}
+
+// GAME FUNCTIONS 
+
+function startQuiz() {
+    displayWelcome();
     let startButton = document.querySelector(".start-btn");
-    startButton.addEventListener("click", showQuestion(questionNumber))
+    startButton.addEventListener("click", showQuestion(questionNumber));
 }
 
 /**
  * Loads the question and available answers for selecting
  */
 function showQuestion(questionNumber) {
-    welcome.style.display = "none";
-    results.style.display = "none";
-    quizContent.style.display = "block";
+    displayQuiz();
 
     question.innerText = questions[questionNumber].question;
     answer1.innerText = questions[questionNumber].answer[0];
@@ -144,14 +162,12 @@ function showQuestion(questionNumber) {
  * @param {number} selectedOption 
  */
 function checkAnswer(selectedOption) {
-    welcome.style.display = "none";
-    results.style.display = "none";
-    quizContent.style.display = "block";
-
+    displayQuiz();
+    
     scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
     quizFinish = endOfQuestions();
     if (!quizFinish) {
-        questionNumber++;
+        questionNumber ++;
         showQuestion(questionNumber);
     };
 }
@@ -161,13 +177,22 @@ function checkAnswer(selectedOption) {
  * @returns 
  */
 function endOfQuestions() {
+    displayQuiz();
+
     questionNumber ++;
     return questionNumber == numberOfQuestions;
-    
+
     welcome.style.display = "none";
     results.style.display = "none";
     quizContent.style.display = "block";
 }
 
+function previousQuestion() {
+    displayQuiz();
 
-welcomePage();
+    questionNumber--;
+    scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
+    showQuestion(questionNumber);
+}
+
+startQuiz();
