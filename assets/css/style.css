@@ -92,18 +92,7 @@ span {display: inline-block;}
     background-color: var(--primary-color);
 }
 
-.nav-buttons {
+.nav-button {
     display: flex;
     justify-self: end;
-}
-
-.back-btn {
-    color: var(--primary-dark);
-    border: none;
-    background-color: var(--white);
-    font-size: 110%;
-}
-
-.back-btn:hover {
-    font-size: 130%;
 }

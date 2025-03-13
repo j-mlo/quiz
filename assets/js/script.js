@@ -183,11 +183,13 @@ function checkAnswer(selectedOption) {
     displayQuiz();
     
     scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
-    quizFinish = endOfQuestions();
+
     if (!quizFinish) {
         questionNumber ++;
         showQuestion(questionNumber);
-    };
+    } else {
+        quizFinish = endOfQuestions();
+    }
 }
 
 /**
@@ -211,41 +213,13 @@ function endOfQuestions() {
 function showResult() {
     displayResults();
 
-    /**
-    * Finds largest number in the array
-    * @param {*} scoreTracker 
-    * @returns number
-    */
-    function countScore(scoreTracker) {
-       let topScore = Math.max(...scoreTracker); 
-    }
+    let topScore = Math.max(...scoreTracker);
 
-    let excellentCategory = document.getElementById("excellent");
-    let goodCategory = document.getElementById("good");
-    let improverCategory = document.getElementById("improver");
-    let interventionCategory = document.getElementById("intervention");
+    document.getElementById("excellent").style.display = scoreTracker[0] === topScore ? "block" : "none";
+    document.getElementById("good").style.display = scoreTracker[1] === topScore ? "block" : "none";
+    document.getElementById("improver").style.display = scoreTracker[2] === topScore ? "block" : "none";
+    document.getElementById("intervention").style.display = scoreTracker[3] === topScore ? "block" : "none";
 
-    if (scoreTracker[0] === topScore) {
-        excellentCategory.style.display = "block";
-        goodCategory.style.display = "none";
-        improverCategory.style.display = "none";
-        interventionCategory.style.display = "none";
-    } else if (scoreTracker[1] === topScore) {
-        excellentCategory.style.display = "none";
-        goodCategory.style.display = "block";
-        improverCategory.style.display = "none";
-        interventionCategory.style.display = "none";
-    } else if (scoreTracker[2] === topScore) {
-        excellentCategory.style.display = "none";
-        goodCategory.style.display = "none";
-        improverCategory.style.display = "block";
-        interventionCategory.style.display = "none";
-    } else if (scoreTracker[3] === topScore) {
-        excellentCategory.style.display = "none";
-        goodCategory.style.display = "none";
-        improverCategory.style.display = "none";
-        interventionCategory.style.display = "block";
-    }
 }
 
 
