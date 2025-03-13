@@ -110,7 +110,7 @@ const results = document.getElementById("results");
 
 const categories = ["Excellent", "Good", "Improver", "Intervention"];
 let scoreTracker = [0, 0, 0, 0]; 
-let questionNumber = 0;
+let questionNumber = 0; 
 let quizFinish = false;
 let numberOfQuestions = questions.length;
 
@@ -136,9 +136,18 @@ function displayResults() {
 }
 
 // GAME FUNCTIONS 
+function previousQuestion(e) {
+    displayQuiz();
+
+    questionNumber--;
+    scoreTracker[selectedOption] = scoreTracker[selectedOption] - 1;
+    showQuestion(questionNumber);
+}
 
 function startQuiz() {
     displayWelcome();
+    questionNumber = 0;
+    scoreTracker = [0, 0, 0, 0]; 
     let startButton = document.querySelector(".start-btn");
     startButton.addEventListener("click", showQuestion(questionNumber));
 }
@@ -149,12 +158,21 @@ function startQuiz() {
 function showQuestion(questionNumber) {
     displayQuiz();
 
-    question.innerText = questions[questionNumber].question;
+    question.innerHTML = `<h2>${questions[questionNumber].question}</h2>`;
     answer1.innerText = questions[questionNumber].answer[0];
     answer2.innerText = questions[questionNumber].answer[1];
     answer3.innerText = questions[questionNumber].answer[2];
     answer4.innerText = questions[questionNumber].answer[3];
     
+    /** 
+     * questions.forEach(question => { 
+     *  progressBarIndex = progressBar[1]
+        let spans = document.querySelectorAll("span");
+        for (let i = 0; i ≤ progressBarIndex; i++) {
+            spans[i].classList.add("seen");
+        }
+     });
+     */
 }
 
 /**
@@ -173,26 +191,62 @@ function checkAnswer(selectedOption) {
 }
 
 /**
- * 
- * @returns 
+ * Checks if we arrived at the end of the quiz
+ * @returns boolean 
  */
 function endOfQuestions() {
     displayQuiz();
 
     questionNumber ++;
-    return questionNumber == numberOfQuestions;
-
-    welcome.style.display = "none";
-    results.style.display = "none";
-    quizContent.style.display = "block";
+    if (questionNumber == numberOfQuestions) {
+        showResult(scoreTracker);
+    }
 }
 
-function previousQuestion() {
-    displayQuiz();
 
-    questionNumber--;
-    scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
-    showQuestion(questionNumber);
+/**
+ * 
+ * @param {*} category 
+ */
+function showResult() {
+    displayResults();
+
+    /**
+    * Finds largest number in the array
+    * @param {*} scoreTracker 
+    * @returns number
+    */
+    function countScore(scoreTracker) {
+       let topScore = Math.max(...scoreTracker); 
+    }
+
+    let excellentCategory = document.getElementById("excellent");
+    let goodCategory = document.getElementById("good");
+    let improverCategory = document.getElementById("improver");
+    let interventionCategory = document.getElementById("intervention");
+
+    if (scoreTracker[0] === topScore) {
+        excellentCategory.style.display = "block";
+        goodCategory.style.display = "none";
+        improverCategory.style.display = "none";
+        interventionCategory.style.display = "none";
+    } else if (scoreTracker[1] === topScore) {
+        excellentCategory.style.display = "none";
+        goodCategory.style.display = "block";
+        improverCategory.style.display = "none";
+        interventionCategory.style.display = "none";
+    } else if (scoreTracker[2] === topScore) {
+        excellentCategory.style.display = "none";
+        goodCategory.style.display = "none";
+        improverCategory.style.display = "block";
+        interventionCategory.style.display = "none";
+    } else if (scoreTracker[3] === topScore) {
+        excellentCategory.style.display = "none";
+        goodCategory.style.display = "none";
+        improverCategory.style.display = "none";
+        interventionCategory.style.display = "block";
+    }
 }
+
 
 startQuiz();
