@@ -38,12 +38,17 @@ h2 {
     text-align: center;
 }
 
-span {
-    border-bottom: 3px solid var(--primary-dark);
-    margin: 10px 1px;
-    padding: 2px;
-    display: inline;
-}
+span {display: inline-block;}
+  .progress {
+    background-color: var(--primary-dark);
+    width: 20px;
+    height: 3px;
+    margin: 30px 1px 5px 1px;
+    border-radius: 1rem;
+  }
+   .seen {
+    background-color: var(--highlight-color);
+   }
 
 /*BUTTONS*/
 .btn {
