@@ -28,10 +28,8 @@ const questions = [
     }
 ];
 
-const categories = ["Excellent", "Good", "Can be improved", "Intervention"];
-let scoreTracker = [0, 0, 0, 0];
-
 // Getters
+const quizContent = document.getElementById("quiz");
 const progress = document.getElementById("progress");
 const question = document.getElementById("question");
 
@@ -43,3 +41,35 @@ const answer4 = document.getElementById("answer4");
 
 const results = document.getElementById("results");
 const welcome = document.getElementById("welcome");
+
+
+const categories = ["Excellent", "Good", "Can be improved", "Intervention"];
+let scoreTracker = [0, 0, 0, 0]; 
+let questionNumber = 0;
+
+/**
+ * Shows the welcome paragraph and hides questions and resutls sections
+ */
+function welcomePage() {
+    quizContent.style.visibility = "hidden";
+    results.style.visibility = "hidden";
+    let startButton = document.querySelector("#start-btn");
+    startButton.addEventListener("click", showQuestion())
+}
+
+/**
+ * Loads the question and available answers for selecting
+ */
+function showQuestion() {
+    welcome.style.visibility = "hidden";
+    results.style.visibility = "hidden";
+    quizContent.style.visibility = "visible";
+
+    question.innerText = questions[questionNumber].question;
+    answer1.innerText = questions[questionNumber].answer[0];
+    answer2.innerText = questions[questionNumber].answer[1];
+    answer3.innerText = questions[questionNumber].answer[2];
+    answer4.innerText = questions[questionNumber].answer[3];
+}
+
+welcomePage();
