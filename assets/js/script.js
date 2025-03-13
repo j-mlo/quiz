@@ -51,25 +51,28 @@ let questionNumber = 0;
  * Shows the welcome paragraph and hides questions and resutls sections
  */
 function welcomePage() {
-    quizContent.style.visibility = "hidden";
-    results.style.visibility = "hidden";
+    quizContent.style.display = "none";
+    results.style.display =  "none";
     let startButton = document.querySelector("#start-btn");
-    startButton.addEventListener("click", showQuestion())
+    startButton.addEventListener("click", showQuestion(questionNumber))
 }
 
 /**
  * Loads the question and available answers for selecting
  */
-function showQuestion() {
-    welcome.style.visibility = "hidden";
-    results.style.visibility = "hidden";
-    quizContent.style.visibility = "visible";
+function showQuestion(questionNumber) {
+    welcome.style.display = "none";
+    results.style.display = "none";
+    quizContent.style.display = "block";
 
     question.innerText = questions[questionNumber].question;
     answer1.innerText = questions[questionNumber].answer[0];
     answer2.innerText = questions[questionNumber].answer[1];
     answer3.innerText = questions[questionNumber].answer[2];
     answer4.innerText = questions[questionNumber].answer[3];
+
 }
+
+
 
 welcomePage();
