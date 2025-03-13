@@ -46,6 +46,8 @@ const welcome = document.getElementById("welcome");
 const categories = ["Excellent", "Good", "Can be improved", "Intervention"];
 let scoreTracker = [0, 0, 0, 0]; 
 let questionNumber = 0;
+let quizFinish = false;
+let numberOfQuestions = numberOfQuestions.length;
 
 /**
  * Shows the welcome paragraph and hides questions and resutls sections
@@ -73,6 +75,22 @@ function showQuestion(questionNumber) {
 
 }
 
+/**
+ * Checks response when answer selsected and shows another question if more are available.
+ * @param {number} selectedOption 
+ */
+function checkAnswer(selectedOption) {
+    scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
+    quizFinish = endOfQuestions();
+    if (!quizFinish) {
+        showQuestion(questionNumber);
+    };
+}
+
+function endOfQuestions() {
+    questionNumber ++;
+    return questionNumber === numberOfQuestions;
+}
 
 
 welcomePage();
