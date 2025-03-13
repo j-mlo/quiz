@@ -95,17 +95,14 @@ const questions = [
 // Getters
 const welcome = document.getElementById("welcome");
 const quizContent = document.getElementById("quiz");
-const progressBar = document.getElementById("progress-bar");
-
 const question = document.getElementById("question");
-
-const answer = document.getElementById("answer");
 const answer1 = document.getElementById("answer1");
 const answer2 = document.getElementById("answer2");
 const answer3 = document.getElementById("answer3");
 const answer4 = document.getElementById("answer4");
-
 const results = document.getElementById("results");
+const progressBar = document.getElementById("progress-bar");
+const progressSpans = document.querySelectorAll(".progress");
 
 
 const categories = ["Excellent", "Good", "Improver", "Intervention"];
@@ -113,7 +110,6 @@ let scoreTracker = [0, 0, 0, 0];
 let questionNumber = 0; 
 let quizFinish = false;
 let numberOfQuestions = questions.length;
-
 
 
 // Functions to hide and show different section of the game
@@ -135,44 +131,43 @@ function displayResults() {
     results.style.display =  "block";
 }
 
-// GAME FUNCTIONS 
-function previousQuestion(e) {
-    displayQuiz();
 
-    questionNumber--;
-    scoreTracker[selectedOption] = scoreTracker[selectedOption] - 1;
+/**
+ * This function starts the quiz
+ */
+function startQuiz() {
+    displayQuiz();
+    questionNumber = 0;
+    scoreTracker = [0, 0, 0, 0];
+    updateProgressBar(); 
     showQuestion(questionNumber);
 }
 
-function startQuiz() {
-    displayWelcome();
-    questionNumber = 0;
-    scoreTracker = [0, 0, 0, 0]; 
-    let startButton = document.querySelector(".start-btn");
-    startButton.addEventListener("click", showQuestion(questionNumber));
-}
+document.querySelector(".start-btn").addEventListener("click", startQuiz);
 
 /**
- * Loads the question and available answers for selecting
+ * Loads the question and available answers for selecting if enough questions available
  */
 function showQuestion(questionNumber) {
     displayQuiz();
+    if (questionNumber < numberOfQuestions) {
+        question.innerHTML = `<h2>${questions[questionNumber].question}</h2>`;
+        answer1.innerText = questions[questionNumber].answer[0];
+        answer2.innerText = questions[questionNumber].answer[1];
+        answer3.innerText = questions[questionNumber].answer[2];
+        answer4.innerText = questions[questionNumber].answer[3];
+        updateProgressBar();
+    }
+}
 
-    question.innerHTML = `<h2>${questions[questionNumber].question}</h2>`;
-    answer1.innerText = questions[questionNumber].answer[0];
-    answer2.innerText = questions[questionNumber].answer[1];
-    answer3.innerText = questions[questionNumber].answer[2];
-    answer4.innerText = questions[questionNumber].answer[3];
-    
-    /** 
-     * questions.forEach(question => { 
-     *  progressBarIndex = progressBar[1]
-        let spans = document.querySelectorAll("span");
-        for (let i = 0; i ≤ progressBarIndex; i++) {
-            spans[i].classList.add("seen");
-        }
-     });
-     */
+/**
+ * This function updates the progress bar for each question
+ */
+function updateProgressBar() {
+    displayQuiz();
+    progressSpans.forEach((span, index) => {
+        span.classList.toggle("seen", index < questionNumber);
+    });
 }
 
 /**
@@ -181,46 +176,50 @@ function showQuestion(questionNumber) {
  */
 function checkAnswer(selectedOption) {
     displayQuiz();
-    
-    scoreTracker[selectedOption] = scoreTracker[selectedOption] + 1;
-
-    if (!quizFinish) {
-        questionNumber ++;
+    scoreTracker[selectedOption]++;
+    questionNumber ++;
+    if (questionNumber < numberOfQuestions) {
         showQuestion(questionNumber);
     } else {
-        quizFinish = endOfQuestions();
+        showResult();
     }
 }
 
 /**
- * Checks if we arrived at the end of the quiz
- * @returns boolean 
- */
-function endOfQuestions() {
-    displayQuiz();
-
-    questionNumber ++;
-    if (questionNumber == numberOfQuestions) {
-        showResult(scoreTracker);
-    }
-}
-
-
-/**
- * 
- * @param {*} category 
+ * This determines the quiz results 
  */
 function showResult() {
     displayResults();
+    
+    let topScore = Math.max(...scoreTracker); // gets the highest score in the array
+    let topScoreCount = scoreTracker.filter(score => score === topScore).length; // counts how many times the score appears
 
-    let topScore = Math.max(...scoreTracker);
+    if (topScoreCount > 1) {
+        let firstTopScoreIndex = scoreTracker.indexOf(topScore); // If the highest score is duplicated finds first occurance of top score
 
-    document.getElementById("excellent").style.display = scoreTracker[0] === topScore ? "block" : "none";
-    document.getElementById("good").style.display = scoreTracker[1] === topScore ? "block" : "none";
-    document.getElementById("improver").style.display = scoreTracker[2] === topScore ? "block" : "none";
-    document.getElementById("intervention").style.display = scoreTracker[3] === topScore ? "block" : "none";
+        // Sets all categories to undisplayed
+        document.getElementById("excellent").style.display = "none";
+        document.getElementById("good").style.display = "none";
+        document.getElementById("improver").style.display = "none";
+        document.getElementById("intervention").style.display = "none";
+
+        if (firstTopScoreIndex === 0) {
+            document.getElementById("excellent").style.display = "block"
+        } else if (firstTopScoreIndex === 1) {
+            document.getElementById("good").style.display = "block"
+        } else if (firstTopScoreIndex === 2) {
+            document.getElementById("improver").style.display = "block"
+        } else if (firstTopScoreIndex === 3) {
+            document.getElementById("intervention").style.display = "block"
+        }
+    } else {
+        document.getElementById("excellent").style.display = scoreTracker[0] === topScore ? "block" : "none";
+        document.getElementById("good").style.display = scoreTracker[1] === topScore ? "block" : "none";
+        document.getElementById("improver").style.display = scoreTracker[2] === topScore ? "block" : "none";
+        document.getElementById("intervention").style.display = scoreTracker[3] === topScore ? "block" : "none";
+        
+    }
 
 }
 
-
-startQuiz();
+displayWelcome();
