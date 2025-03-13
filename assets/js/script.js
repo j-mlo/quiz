@@ -8,7 +8,8 @@ const questions = [
             "6 - 7 hours",
             "6 or less hours"
         ],
-
+    },
+    {
         question: "What much excercise do you do on a weekly basis? (i.e. elevating your heart rate)?",
         answer: [
             "4 or more hours",
@@ -16,16 +17,79 @@ const questions = [
             "less than 1 hour",
             "None"
         ],
-
-        question: "Do you regularly take time to check in with yourself, e.g. sitting in silence, journalling, daydreaming...?",
+    },
+    {
+        question: "How much water do you drink daily?",
+        answer: [
+            "Over 2 litres",
+            "1 - 2 litres",
+            "Less than 1 litre",
+            "I only have other drinks instead (e.g coffee/tea, energy drinks etc)"
+        ],
+    },
+    {
+        question: "How much sugar do you consume?",
+        answer: [
+            "None - I quit sugar altogether",
+            "Only on special occasions",
+            "Most days",
+            "Everyday"
+        ],
+    },
+    {
+        question: "Do you regularly take time to be still with yourself (e.g. sitting in silence, journalling, daydreaming...)?",
         answer: [
             "Often",
             "Sometimes",
             "Rarely",
             "Never"
-        ]
-
-    }
+        ],
+    },
+    {
+        question: "What is your average, daily screen time?",
+        answer: [
+            "8 hours or less",
+            "8 - 10 hours ",
+            "10 - 12 hours",
+            "12 or more hours"
+        ],
+    },
+    {
+        question: "How are your relationships with family and friends?",
+        answer: [
+            "I’m very connected with people in my life, I keep healthy boundaries and communication",
+            "I am close to my loved ones but still learning to be assertive yet also vulnerable",
+            "I struggle with relational conflict and vulnerability and tend to have surface level relationships",
+            "I feel isolated and not able to connect with people around me in any way"
+        ],
+    },
+    {
+        question: "Do you belong to a supportive community (e.g. neighbourhood/ social club/ church)?",
+        answer: [
+            "I belong to a tight knit community who is supportive and respectful",
+            "I can depend on some people in my life, but I don’t belong to a community",
+            "I am part of a community who is not very supportive or respectful",
+            "I don’t have people I can depend on for support"
+        ],
+    },
+    {
+        question: "Are you fulfilled in your vocation (e.g. job, parenthood, service)?",
+        answer: [
+            "I love what I do even despite challenges",
+            "I mostly enjoy what I do but dread some of my daily tasks",
+            "I don’t like what I do and don’t get any energy from it",
+            "My current vocation Is causing depression and/or anxiety"
+        ],
+    },
+    {
+        question: "Have you found what meaningful life is to you?",
+        answer: [
+            "Yes, I know how to live meaningfully",
+            "I have a good idea of what makes my life meaningful",
+            "I haven’t considered what is meaningful to me",
+            "I feel lost when it comes to  meaning in my life"
+        ],
+    },
 ];
 
 // Getters
@@ -55,7 +119,7 @@ let numberOfQuestions = questions.length;
 function welcomePage() {
     quizContent.style.display = "none";
     results.style.display =  "none";
-    let startButton = document.querySelector("#start-btn");
+    let startButton = document.querySelector(".start-btn");
     startButton.addEventListener("click", showQuestion(questionNumber))
 }
 
@@ -73,6 +137,7 @@ function showQuestion(questionNumber) {
     answer3.innerText = questions[questionNumber].answer[2];
     answer4.innerText = questions[questionNumber].answer[3];
     
+
 }
 
 /**
