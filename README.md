@@ -12,13 +12,20 @@
 
 ## Introduction
 
-The Holistic Quiz 
+The Holistic Quiz is an interactive front-end website which displays a simple quiz to rate one's health in 4 categories: Excellent, Good, Can Be Improved and Needs Intervention. The result determines the category based on the highest answers in that category and lets the user know how they score, as well as, includes a number of tips for improving health. 
 
 ## User Experience
 
 ### User Stories 
 
+- As a General User Looking to Assess Health, I want to take a health quiz that provides a general overview of my health, so that I can gain insights into areas where I might need to improve.
+- As a fitness and lifestyle influencer, I want to have a tool that assess my health and fitness level, so that I can create more specific fitness goals and potentially share it with my followers.
+- As a person who is preparing for an upcoming doctor's visit, I want to take a health quiz and be able to share my results with my healthcare provider, so that we can discuss my health in more detail during my appointment.
+
 ## Design 
+
+- 'Roboto' sans-serif Google font is used for the body text throughout the website.
+- 'Kantumruy Pro' sans-serif Google font is used for the headings throguhout the website.
 
 ## Technologies Used
 
@@ -41,6 +48,11 @@ The Holistic Quiz
 
 ### Bugs
 
+## Deployment
+
+The project is deployed on GitHub pages and can be accessed by the following link:
+https://j-mlo.github.io/quiz/ 
+
 ### Forking 
 
 * Fork this project following the steps:
@@ -54,7 +66,7 @@ The Holistic Quiz
 
 ### Content 
 
-All the written content on the webpage is original, written by Joanna
+All the written content on the webpage is original, written by Joanna.
 
 ### Special Thanks 
 
