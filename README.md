@@ -20,7 +20,8 @@ The Holistic Quiz is an interactive front-end website which displays a simple qu
 
 - As a General User Looking to Assess Health, I want to take a health quiz that provides a general overview of my health, so that I can gain insights into areas where I might need to improve.
 - As a fitness and lifestyle influencer, I want to have a tool that assess my health and fitness level, so that I can create more specific fitness goals and potentially share it with my followers.
-- As a person who is preparing for an upcoming doctor's visit, I want to take a health quiz and be able to share my results with my healthcare provider, so that we can discuss my health in more detail during my appointment.
+- As a person preparing for an upcoming doctor's visit, I want to take a health quiz and be able to share my results with my healthcare provider, so that we can discuss my health in more detail during my appointment.
+- As a company in health and wellbeing industry, we want to provide a tool on our website which helps customers rate their health, so that they gain even more value from us when it comes to health improvement.
 
 ## Design 
 
