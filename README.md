@@ -12,7 +12,7 @@
 
 ## Introduction
 
-The Holistic Quiz is an interactive front-end website which displays a simple quiz to rate one's health in 4 categories: Excellent, Good, Can Be Improved and Needs Intervention. The result determines the category based on the highest answers in that category and lets the user know how they score, as well as, includes a number of tips for improving health. 
+The Holistic Quiz is an interactive front-end website which displays a simple quiz to rate one's health in 4 categories: Excellent, Good, Can Be Improved and Needs Intervention. The result determines the category based on the highest answers in that category and lets the user know how they score, as well as, including a number of tips for improving health. 
 
 ## User Experience
 
@@ -26,7 +26,7 @@ The Holistic Quiz is an interactive front-end website which displays a simple qu
 ## Design 
 
 - 'Roboto' sans-serif Google font is used for the body text throughout the website.
-- 'Kantumruy Pro' sans-serif Google font is used for the headings throguhout the website.
+- 'Kantumruy Pro' sans-serif Google font is used for the headings throughout the website.
 
 ## Technologies Used
 
@@ -43,9 +43,15 @@ The Holistic Quiz is an interactive front-end website which displays a simple qu
 
 ### HTML Validator
 
+![html-validator](assets/images/html-validator.jpg)
+
 ### CSS Validator
 
+![css-validator](assets/images/css-validator.jpg)
+
 ### Lighthouse Validator
+
+![js-validator](assets/images/js-validator.jpg)
 
 ### Bugs
 
@@ -56,7 +62,7 @@ https://j-mlo.github.io/quiz/
 
 ### Forking 
 
-* Fork this project following the steps:
+Fork this project following the steps:
 
 1. Open [GitHub](https://github.com/).
 2. Click on the project to be forked.

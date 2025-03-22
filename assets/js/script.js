@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Questions
 const questions = [
     {
@@ -101,11 +103,8 @@ const answer2 = document.getElementById("answer2");
 const answer3 = document.getElementById("answer3");
 const answer4 = document.getElementById("answer4");
 const results = document.getElementById("results");
-const progressBar = document.getElementById("progress-bar");
 const progressSpans = document.querySelectorAll(".progress");
 
-
-const categories = ["Excellent", "Good", "Improver", "Intervention"];
 let scoreTracker = [0, 0, 0, 0]; 
 let questionNumber = 0; 
 let quizFinish = false;
@@ -117,7 +116,7 @@ function displayWelcome() {
     welcome.style.display = "block";
     quizContent.style.display = "none";
     results.style.display =  "none";
-};
+}
 
 function displayQuiz() {
     welcome.style.display = "none";
@@ -204,13 +203,13 @@ function showResult() {
         document.getElementById("intervention").style.display = "none";
 
         if (firstTopScoreIndex === 0) {
-            document.getElementById("excellent").style.display = "block"
+            document.getElementById("excellent").style.display = "block";
         } else if (firstTopScoreIndex === 1) {
-            document.getElementById("good").style.display = "block"
+            document.getElementById("good").style.display = "block";
         } else if (firstTopScoreIndex === 2) {
-            document.getElementById("improver").style.display = "block"
+            document.getElementById("improver").style.display = "block";
         } else if (firstTopScoreIndex === 3) {
-            document.getElementById("intervention").style.display = "block"
+            document.getElementById("intervention").style.display = "block";
         }
     } else {
         document.getElementById("excellent").style.display = scoreTracker[0] === topScore ? "block" : "none";
